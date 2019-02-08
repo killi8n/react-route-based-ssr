@@ -78,7 +78,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  ssrJs: resolveApp('src/serverRender.ts'),
+  ssrJs: resolveApp('src/serverRender.tsx'),
   ssrBuild: resolveApp('../backend/dist/ssr')
 };
 

@@ -2,7 +2,7 @@ const manifest = require('../../frontend/build/asset-manifest.json');
 const ssr = require('./ssr').default;
 
 const buildHtml = (html, state) => {
-  console.log(state);
+  // console.log(state);
 
   const jsKeys = Object.keys(manifest)
     .filter(jsKey => jsKey.match(/.js$/))
@@ -10,14 +10,14 @@ const buildHtml = (html, state) => {
       if (key === 'service-worker.js') return;
       return `<script src="${manifest[key]}"></script>`;
     })
-    .join('\n');
+    .join('\n\t\t');
 
   const cssKeys = Object.keys(manifest)
     .filter(cssKey => cssKey.match(/.css$/))
     .map(key => {
       return `<link href="${manifest[key]}" rel="stylesheet">`;
     })
-    .join('\n');
+    .join('\n\t\t');
 
   return `
     <!DOCTYPE html>

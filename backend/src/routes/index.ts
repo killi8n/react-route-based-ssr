@@ -4,6 +4,7 @@ import Repo, { RepoType } from '../models/Repo';
 const router = Router();
 
 router.get('/thumbnail', (req: Request, res: Response) => {
+  console.log('thumbnail');
   try {
     return res.status(200).json({
       thumbnail: 'https://avatars1.githubusercontent.com/u/47375524?s=460&v=4'

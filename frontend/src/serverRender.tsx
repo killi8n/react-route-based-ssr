@@ -4,9 +4,13 @@ import { Request } from 'express';
 import routeConfig from './routeConfig';
 import { matchPath, StaticRouter } from 'react-router';
 import * as ReactDOMServer from 'react-dom/server';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 // import App from 'components/App';
-import StaticProvider from './lib/StaticProvider';
+// import StaticProvider from './lib/StaticProvider';
+import App from 'components/App';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:4000';
 
 export type PreloadParams = {
   dispatch: any;
@@ -21,6 +25,7 @@ const serverRender = async (req: Request) => {
     const match = matchPath(path, route);
     if (match && route.preload) {
       const p = route.preload(store, match.params);
+      console.log('p', p);
       promises.push(p);
     }
   });
@@ -32,9 +37,13 @@ const serverRender = async (req: Request) => {
   } catch (e) {
     error = e;
   }
-
   const html = ReactDOMServer.renderToString(
-    React.createElement(StaticRouter, {}, React.createElement(StaticProvider))
+    // React.createElement(StaticRouter, {}, React.createElement(StaticProvider))
+    <Provider store={store}>
+      <StaticRouter>
+        <App />
+      </StaticRouter>
+    </Provider>
   );
 
   return {

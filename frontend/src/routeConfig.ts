@@ -7,20 +7,24 @@ export type RouteType = {
   path: string;
   component: any;
   preload?: any;
+  exact: boolean;
 };
 
 const routes: RouteType[] = [
   {
     path: '/',
-    component: Introduction
+    component: Introduction,
+    exact: true
   },
   {
     path: '/profile',
     component: Profile,
     preload: (store: any, params: any) => {
+      console.log('preload profile');
       const ProfileActions = bindActionCreators(profileActions, store.dispatch);
       return ProfileActions.getThumbnail();
-    }
+    },
+    exact: false
   },
   {
     path: '/repos',
@@ -28,7 +32,8 @@ const routes: RouteType[] = [
     preload: (store: any, params: any) => {
       const ReposActions = bindActionCreators(reposActions, store.dispatch);
       return ReposActions.getRepos();
-    }
+    },
+    exact: false
   }
 ];
 
