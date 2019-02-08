@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  background: gray;
+  height: 2.5rem;
+
+  align-items: center;
+  padding: 1rem;
+
+  .item {
+    color: white;
+    flex: 1;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
