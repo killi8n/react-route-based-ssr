@@ -63,4 +63,6 @@ declare module '*.module.sass' {
   export default classes;
 }
 
+declare module '*.scss';
+
 declare module 'react-loader-spinner';

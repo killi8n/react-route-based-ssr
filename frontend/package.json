@@ -19,6 +19,7 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
+    "classnames": "^2.2.6",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
@@ -88,6 +89,7 @@
   ],
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/classnames": "^2.2.7",
     "@types/express": "^4.16.1",
     "@types/http-proxy-middleware": "^0.19.2",
     "@types/react-redux": "^7.0.1",
