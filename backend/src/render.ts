@@ -2,8 +2,6 @@ const manifest = require('../../frontend/build/asset-manifest.json');
 const ssr = require('./ssr').default;
 
 const buildHtml = (html, state) => {
-  // console.log(state);
-
   const jsKeys = Object.keys(manifest)
     .filter(jsKey => jsKey.match(/.js$/))
     .map(key => {
