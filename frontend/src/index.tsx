@@ -35,10 +35,8 @@ const render = async () => {
     const { getComponent } = route.component;
     if (!getComponent) return;
     getComponents.push(getComponent());
-    console.log(route);
   });
 
-  console.log(getComponents);
   await Promise.all(getComponents);
 
   ReactDOM.render(RootComponent, rootElement);

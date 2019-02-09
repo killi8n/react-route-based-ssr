@@ -20,7 +20,6 @@ const routes: RouteType[] = [
     path: '/profile',
     component: Profile,
     preload: (store: any, params: any) => {
-      console.log('preload profile');
       const ProfileActions = bindActionCreators(profileActions, store.dispatch);
       return ProfileActions.getThumbnail();
     },
