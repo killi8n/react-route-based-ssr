@@ -40,7 +40,7 @@ const serverRender = async (req: Request) => {
   const html = ReactDOMServer.renderToString(
     // React.createElement(StaticRouter, {}, React.createElement(StaticProvider))
     <Provider store={store}>
-      <StaticRouter>
+      <StaticRouter location={url}>
         <App />
       </StaticRouter>
     </Provider>
